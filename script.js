@@ -1,7 +1,7 @@
 var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
-    $http.get("http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014")
+    $http.post("proxy.php", "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014")
         .then(function(response) {
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
@@ -28,7 +28,6 @@ function formatBills(bills) {
     }
     return bills;
 }
-
 
 // Changes XML to JSON
 //Credit for this function to David Walsh: https://davidwalsh.name/convert-xml-json
