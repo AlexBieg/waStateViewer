@@ -1,7 +1,7 @@
 var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
-    $http.post("proxy.php", "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014")
+    $http.post("proxy.php", {address:"http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014"})
         .then(function(response) {
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
