@@ -6,8 +6,8 @@ app.controller("homeController", function($scope, $http) {
         address: url
     };
     $.post('proxy.php', data, function(response) {
-            console.log(response['#document']);
-            $scope.bills = formatBills(xmlToJson($.parseXML(response['#document'])).ArrayOfLegislationInfo.LegislationInfo);
+            console.log(response);
+            $scope.bills = formatBills(xmlToJson($.parseXML(response)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
     }, "xml");
 });
