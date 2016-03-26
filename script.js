@@ -7,7 +7,7 @@ app.controller("homeController", function($scope, $http) {
     };
     $.post('proxy.php', data, function(response) {
             console.log(response);
-            $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
+            $scope.bills = formatBills(xmlToJson($.parseXML(response['#document'])).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
     }, "xml");
 });
