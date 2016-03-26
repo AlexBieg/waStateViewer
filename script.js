@@ -3,8 +3,13 @@ var app = angular.module("app", []);
 app.controller("homeController", function($scope, $http) {
 
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
-    var data = encodeURIComponent(JSON.stringify({address: url}));
-    $http.post('proxy.php', data).then(function(response) {
+    var data = {address: url}
+    $http({
+        method: 'POST',
+        url: 'proxy.php',
+        data: data,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
