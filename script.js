@@ -5,7 +5,7 @@ app.controller("homeController", function($scope, $http) {
     var data = {
         address: url
     };
-    $.post('proxy.php', data, function(response) {
+    $http.post('proxy.php', data).then(function(response) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
