@@ -2,7 +2,10 @@ var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
-    $http.post('proxy.php', {'address': url})
+    var data = $.param({
+        address: url
+    })
+    $http.post('proxy.php', data)
         .then(function(response) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
