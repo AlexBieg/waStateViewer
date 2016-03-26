@@ -1,20 +1,12 @@
 var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
-    var data = $.param({address:"http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014"})
-    $http.post("proxy.php", data)
+    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
+    $http.post('proxy.php', {'address': url})
         .then(function(response) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
-            // for (var i = 0; i < $scope.bills.length; i++) {
-            //     var biennium = $scope.bills[i].Biennium;
-            //     var billNumber = $scope.bills[i].BillNumber;
-            //     $http.get("http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislation?biennium=" + biennium + "&billNumber=" + billNumber)
-            //          .then(function(response) {
-            //              console.log(response);
-            //          });
-            // }
         });
 });
 
