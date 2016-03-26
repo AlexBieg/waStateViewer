@@ -2,15 +2,14 @@ var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
-    var data = $.param({
+    var data = {
         address: url
-    })
-    $http.post('proxy.php', data)
-        .then(function(response) {
+    };
+    $.post('proxy.php', data, function(response) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
-        });
+    });
 });
 
 function formatBills(bills) {
