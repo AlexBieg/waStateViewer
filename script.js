@@ -9,7 +9,7 @@ app.controller("homeController", function($scope, $http) {
             console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
-    }, "xml");
+    });
 });
 
 function formatBills(bills) {
