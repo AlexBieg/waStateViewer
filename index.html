@@ -15,14 +15,12 @@
         <div class="header">
             <h1>Washington State Legislation Viewer</h1>
         </div>
-        <div class="filters">
-            <form class="form-control">
-                <select ng-model="year">
-                    <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
-                </select>
-            </form>
-        </div>
-        <div class="container">
+        <div class="container main-content">
+            <div class="filters">
+                <form class="form-control">
+                    <select ng-model="year" ng-options="year for year in years"></select>
+                </form>
+            </div>
             <div class="show-bills">
                 <ol>
                     <li ng-repeat="bill in bills">

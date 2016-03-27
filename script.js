@@ -4,7 +4,7 @@ app.controller("homeController", function($scope, $http) {
     $scope.years = getYears();
     console.log($scope.years);
 
-    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
+    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.years[$scope.years.length-1];
     $http({
         method: 'POST',
         url: 'proxy.php',
