@@ -5,12 +5,17 @@ app.controller("homeController", function($scope, $http) {
     $scope.years = getYears();
     $scope.year = $scope.years[0];
 
-    //Checkbox variables
-    $scope.check = {
+    //type variables
+    $scope.type = {
         initiative : true,
         bill : true
     }
 
+    //bocy variables
+    $scope.body = {
+        senate : true,
+        house : true
+    }
     $scope.getLegislation = function() {
         var showBillsDiv = $(".show-bills");
         showBillsDiv.hide();
@@ -30,7 +35,9 @@ app.controller("homeController", function($scope, $http) {
     $scope.getLegislation();
 
     $scope.filterBills = function(bill) {
-        return $scope.check[bill.LegislationType.toLowerCase()];
+        var type = $scope.type[bill.LegislationType.toLowerCase()];
+        var body = $scope.body[bill.OriginalAgency.toLowerCase()];
+        return type && body;
     }
 });
 

@@ -18,12 +18,21 @@
         <div class="container main-content">
             <div class="filters">
                 <form>
+                    <h3>Year</h3>
                     <select class="form-control" ng-model="year" ng-options="date for date in years" ng-change="getLegislation()"></select>
+                    <h3>Type</h3>
                     <div class="checkbox">
-                        <label><input type="checkbox" ng-model="check.bill">Bills</label>
+                        <label><input type="checkbox" ng-model="type.bill">Bills</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" ng-model="check.initiative">Initiatives</label>
+                        <label><input type="checkbox" ng-model="type.initiative">Initiatives</label>
+                    </div>
+                    <h3>Body</h3>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="body.senate">Senate</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="body.house">House</label>
                     </div>
                 </form>
             </div>
