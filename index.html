@@ -51,10 +51,8 @@
                     </div>
                 </form>
             </div>
-            <div class="current-total">
-                <h3>{{filtered.length}}</h3>
-            </div>
             <div class="show-bills">
+                <h3>Currently Showing: {{filtered.length}}</h3>
                 <ol>
                     <li ng-repeat="bill in bills | filter:filterBills as filtered">
                         <p>
