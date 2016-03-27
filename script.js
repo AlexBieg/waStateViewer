@@ -6,7 +6,7 @@ app.controller("homeController", function($scope, $http) {
     $http({
         method: 'POST',
         url: 'proxy.php',
-        data: {address:url},
+        data: "address=" + url,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(response) {
             console.log(response);
