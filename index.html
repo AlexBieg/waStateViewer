@@ -44,7 +44,7 @@
             </div>
             <div class="show-bills">
                 <ol>
-                    <li ng-repeat="bill in bills">
+                    <li ng-repeat="bill in bills | filter:filterBills">
                         <p>
                             {{bill.BillId}}
                         </p>
