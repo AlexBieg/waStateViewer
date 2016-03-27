@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("homeController", function($scope, $http) {
     $scope.years = getYears();
 
-    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
+    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
     $http({
         method: 'POST',
         url: 'proxy.php',
