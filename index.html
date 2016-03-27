@@ -19,12 +19,24 @@
             <div class="filters">
                 <form>
                     <select class="form-control" ng-model="year" ng-options="date for date in years" ng-change="getLegislation()"></select>
-                    <label><input class="form-control" type="checkbox" ng-model="amendmentsCB" value="Amendment">Amendments</label>
-                    <label><input class="form-control" type="checkbox" ng-model="billReportsCB" value="BillReport">Bill Reports</label>
-                    <label><input class="form-control" type="checkbox" ng-model="digestsCB" value="Digest">Digests</label>
-                    <label><input class="form-control" type="checkbox" ng-model="initiativesCB" value="Initiative">Initiatives</label>
-                    <label><input class="form-control" type="checkbox" ng-model="reportsCB" value="Report">Reports</label>
-                    <label><input class="form-control" type="checkbox" ng-model="workRoomReportsCB" value="WorkRoomReport">Work Room Reports</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="amendmentsCB" value="Amendment">Amendments</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="billReportsCB" value="BillReport">Bill Reports</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="digestsCB" value="Digest">Digests</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="initiativesCB" value="Initiative">Initiatives</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="reportsCB" value="Report">Reports</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="workRoomReportsCB" value="WorkRoomReport">Work Room Reports</label>
+                    </div>
                 </form>
             </div>
             <div class="show-bills">
