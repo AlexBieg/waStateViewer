@@ -23,7 +23,7 @@ function getYears() {
         console.log(i);
         ret.push(i);
     }
-    return i;
+    return ret;
 }
 
 function formatBills(bills) {
