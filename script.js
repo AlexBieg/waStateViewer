@@ -7,12 +7,7 @@ app.controller("homeController", function($scope, $http) {
 
     //Checkbox variables
     $scope.check = {
-        amendment : false,
-        billReport : false,
-        digest : false,
         initiative : true,
-        report : false,
-        workRoomReport : false,
         bill : true
     }
 
