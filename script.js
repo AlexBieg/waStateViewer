@@ -7,13 +7,13 @@ app.controller("homeController", function($scope, $http) {
 
     //Checkbox variables
     $scope.check = {
-        amendments : false,
-        billReports : false,
-        digests : false,
-        initiatives : true,
-        reports : false,
-        workRoomReports : false,
-        bills : true
+        amendment : false,
+        billReport : false,
+        digest : false,
+        initiative : true,
+        report : false,
+        workRoomReport : false,
+        bill : true
     }
 
     $scope.getLegislation = function() {
@@ -33,6 +33,10 @@ app.controller("homeController", function($scope, $http) {
     }
 
     $scope.getLegislation();
+
+    $scope.filterBills = function(bill) {
+        return $scope.check[bill.LegislationType.toLowerCase()];
+    }
 });
 
 function getYears() {
