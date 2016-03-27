@@ -2,6 +2,7 @@ var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
     $scope.years = getYears();
+    console.log($scope.years);
 
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
     $http({
@@ -10,7 +11,6 @@ app.controller("homeController", function($scope, $http) {
         data: "address=" + url,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(response) {
-            console.log(response);
             $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
             console.log($scope.bills);
     });
