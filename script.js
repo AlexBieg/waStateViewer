@@ -1,11 +1,24 @@
 var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
+    //Year variables
     $scope.years = getYears();
-    console.log($scope.years);
     $scope.year = $scope.years[0];
 
+    //Checkbox variables
+    $scope.check = {
+        amendments : false,
+        billReports : false,
+        digests : false,
+        initiatives : true,
+        reports : false,
+        workRoomReports : false,
+        bills : true
+    }
+
     $scope.getLegislation = function() {
+        var showBillsDiv = $(".show-bills");
+        showBillsDiv.hide();
         var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
         $http({
             method: 'POST',
@@ -15,6 +28,7 @@ app.controller("homeController", function($scope, $http) {
         }).then(function(response) {
                 $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
                 console.log($scope.bills);
+                showBillsDiv.show();
         });
     }
 
