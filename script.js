@@ -8,7 +8,12 @@ app.controller("homeController", function($scope, $http) {
     //type variables
     $scope.type = {
         initiative : true,
-        bill : true
+        bill : true,
+        "concurrent resolution" : true,
+        "joint resolution" : true,
+        resolution : true,
+        "joint memorial" : true,
+        "gubernatorial appointment" : true,
     }
 
     //bocy variables
