@@ -5,10 +5,8 @@ app.controller("homeController", function($scope, $http) {
     console.log($scope.years);
     $scope.year = $scope.years[0];
 
-    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
-
     $scope.getLegislation = function() {
-        console.log($scope.year);
+        var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
         $http({
             method: 'POST',
             url: 'proxy.php',
