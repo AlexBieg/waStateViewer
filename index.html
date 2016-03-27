@@ -18,8 +18,7 @@
         <div class="container main-content">
             <div class="filters">
                 <form>
-                    <select class="form-control" ng-model="year" ng-options="date for date in years">
-                    </select>
+                    <select class="form-control" ng-model="year" ng-options="date for date in years" ng-change="getLegislation()"></select>
                 </form>
             </div>
             <div class="show-bills">

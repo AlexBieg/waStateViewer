@@ -6,15 +6,17 @@ app.controller("homeController", function($scope, $http) {
     $scope.year = $scope.years[0];
 
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
-    $http({
-        method: 'POST',
-        url: 'proxy.php',
-        data: "address=" + url,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-    }).then(function(response) {
-            $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
-            console.log($scope.bills);
-    });
+    $scope.getLegislation = function() {
+        $http({
+            method: 'POST',
+            url: 'proxy.php',
+            data: "address=" + url,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(response) {
+                $scope.bills = formatBills(xmlToJson($.parseXML(response.data)).ArrayOfLegislationInfo.LegislationInfo);
+                console.log($scope.bills);
+        });
+    }
 });
 
 function getYears() {
