@@ -20,7 +20,6 @@ function getYears() {
     var ret = [];
     var date = new Date();
     for (var i = 1992; i <= date.getFullYear(); i++) {
-        console.log(i);
         ret.push(i);
     }
     return ret;
