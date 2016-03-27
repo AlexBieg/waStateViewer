@@ -1,8 +1,9 @@
 var app = angular.module("app", []);
 
 app.controller("homeController", function($scope, $http) {
+    $scope.years = getYears();
 
-    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
+    var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
     $http({
         method: 'POST',
         url: 'proxy.php',
@@ -14,6 +15,15 @@ app.controller("homeController", function($scope, $http) {
             console.log($scope.bills);
     });
 });
+
+function getYears() {
+    var ret = [];
+    var date = new Date();
+    for (var i = date.getFullYear(); i >= 1992; i--) {
+        ret.push(i);
+    }
+    return i;
+}
 
 function formatBills(bills) {
     for (var i = 0; i < bills.length; i++) {

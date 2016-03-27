@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Washington State Legislature</title>
+        <title>WaViewer</title>
 
         <script src="https://code.jquery.com/jquery.min.js"></script>
     	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -12,6 +12,16 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body ng-app="app">
+        <div class="header">
+            <h1>Washington State Legislation Viewer</h1>
+        </div>
+        <div class="filters">
+            <form class="form-control">
+                <select ng-model="year">
+                    <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                </select>
+            </form>
+        </div>
         <div class="container" ng-controller="homeController">
             <div class="show-bills">
                 <ol>
