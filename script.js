@@ -3,11 +3,10 @@ var app = angular.module("app", []);
 app.controller("homeController", function($scope, $http) {
 
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=2014";
-    var data = {address: url}
     $http({
         method: 'POST',
         url: 'proxy.php',
-        data: data,
+        data: "address=" + url,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(response) {
             console.log(response);
