@@ -6,7 +6,6 @@ app.controller("homeController", function($scope, $http) {
     $scope.year = $scope.years[0];
 
     var url = "http://wslwebservices.leg.wa.gov/legislationservice.asmx/GetLegislationByYear?year=" + $scope.year;
-    $scope.getLegislation();
 
     $scope.getLegislation = function() {
         console.log($scope.year);
@@ -20,6 +19,8 @@ app.controller("homeController", function($scope, $http) {
                 console.log($scope.bills);
         });
     }
+
+    $scope.getLegislation();
 });
 
 function getYears() {
