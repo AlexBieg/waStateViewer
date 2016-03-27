@@ -20,7 +20,7 @@ app.controller("homeController", function($scope, $http) {
 function getYears() {
     var ret = [];
     var date = new Date();
-    for (var i = 1992; i <= date.getFullYear(); i++) {
+    for (var i = date.getFullYear(); i > 1991 ; i--) {
         ret.push(i);
     }
     return ret;
